@@ -26,3 +26,4 @@ motion_mode = 0
 [node name="PlayerWeapon" type="Node2D" parent="."]
 
 [connection signal="shoot" from="Ship" to="." method="_on_ship_shoot"]
+[connection signal="enemy_shoot" from="Enemies/EnemySimpleUfo" to="." method="_on_enemy_simple_ufo_enemy_shoot"]

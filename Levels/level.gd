@@ -12,6 +12,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
+	
 
 func _on_weapon_changed(new_weapon):
 	var all_weapons = player_weapon_node.get_children()
@@ -37,3 +38,8 @@ func _on_ship_shoot(pos):
 			player_projectiles_node.add_child(projectile) 
 	else:
 		print_verbose("No weapon")
+
+
+func _on_enemy_simple_ufo_enemy_shoot(pos, dir, projectile):
+	enemies_projectiles_node.add_child(projectile)
+	
