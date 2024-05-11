@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://pird2un13vsw"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_fnuih"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 39
+motion_mode = 1
+script = ExtResource("1_fnuih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="InvulnerableTimer" type="Timer" parent="Timers"]
+
+[connection signal="timeout" from="Timers/InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]

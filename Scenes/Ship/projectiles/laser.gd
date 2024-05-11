@@ -1,6 +1,7 @@
 extends ProjectileBase
 class_name LaserBase
 
-var direction : Vector2 = Vector2()
-
-
+func _on_body_entered(body):
+	if "hit" in body:
+		body.hit(projectile_damage)
+	queue_free()
