@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb25nttx8v6nu"]
+
+[ext_resource type="PackedScene" uid="uid://pird2un13vsw" path="res://Scenes/Enemies/enemy.tscn" id="1_ilf27"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy_simple_ufo.gd" id="2_4nilo"]
+[ext_resource type="Texture2D" uid="uid://bj0bybfqv0ya" path="res://Art/Enemies/enemy-ship-0001.png" id="2_xy0ap"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8ao1"]
+radius = 7.00001
+height = 40.0
+
+[node name="EnemySimpleUfo" instance=ExtResource("1_ilf27")]
+script = ExtResource("2_4nilo")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 3)
+texture = ExtResource("2_xy0ap")
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_r8ao1")

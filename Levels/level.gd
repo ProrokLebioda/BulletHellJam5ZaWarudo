@@ -9,6 +9,7 @@ extends Node2D
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
 
