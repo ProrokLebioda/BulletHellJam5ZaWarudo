@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvasjpp4l5xyy"]
+
+[ext_resource type="Script" path="res://Scenes/Ship/projectiles/laser.gd" id="1_ppxl0"]
+
+[node name="Laser" type="Area2D"]
+script = ExtResource("1_ppxl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhv5pync05m0o"]
+
+[ext_resource type="PackedScene" uid="uid://ctyyvjuf6mil0" path="res://Scenes/Ship/ship.tscn" id="1_63a6j"]
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_vcq5y"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_vcq5y")
+
+[node name="Ship" parent="." instance=ExtResource("1_63a6j")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Player" type="Node2D" parent="Projectiles"]
+
+[node name="Enemies" type="Node2D" parent="Projectiles"]

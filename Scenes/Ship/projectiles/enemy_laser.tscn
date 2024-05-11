@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dikxtq7kcrael"]
+
+[ext_resource type="PackedScene" uid="uid://bvasjpp4l5xyy" path="res://Scenes/Ship/projectiles/laser.tscn" id="1_0jf6b"]
+[ext_resource type="Script" path="res://Scenes/Ship/projectiles/enemy_laser.gd" id="2_1jdr0"]
+[ext_resource type="Texture2D" uid="uid://bxvy2ygjdxvs3" path="res://Art/projectiles/laser.png" id="2_picf6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxgrm"]
+radius = 3.0
+height = 10.0
+
+[node name="EnemyLaser" instance=ExtResource("1_0jf6b")]
+script = ExtResource("2_1jdr0")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_picf6")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_pxgrm")
