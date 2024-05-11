@@ -30,13 +30,6 @@ func _physics_process(delta):
 		weapon_cooldown_timer.start(weapon_cooldown)
 		shoot.emit(global_position)
 
-#func clamp_pos_in_bounds(pos_in : Vector2) -> Vector2:
-#	if pos_in.x < disp_size.x:
-#		pos_in.x = disp_size.x
-#	if pos_in.x > disp_size.x:
-#		pos_in.x = disp_size.x
-#	if pos_in.y < disp_size.y:
-#		pos_in.y = disp_size.y
 
 func _on_weapon_cooldown_timer_timeout():
 	can_shoot = true
