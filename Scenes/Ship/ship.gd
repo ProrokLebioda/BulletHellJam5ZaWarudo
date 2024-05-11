@@ -42,5 +42,10 @@ func _on_weapon_cooldown_timer_timeout():
 	can_shoot = true
 
 func hit(damage:int):
-	print("Player hit for ", damage, " damage!")
-	
+	if Player.is_vulnerable:
+		Player.health-=damage
+		print("Player hit for ", damage, " damage!")
+		
+	if Player.health <= 0:
+		Player.health = 0
+		queue_free()

@@ -6,7 +6,7 @@ signal weapon_changed(weapon : WeaponBase)
 var player_pos : Vector2
 
 var is_vulnerable: bool = true
-var health_base: int = 100
+var health_base: int = 10
 var health = health_base:
 	get:
 		return health
