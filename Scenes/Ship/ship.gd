@@ -41,4 +41,5 @@ func hit(damage:int):
 		
 	if Player.health <= 0:
 		Player.health = 0
-		queue_free()
+		#queue_free()
+		get_tree().change_scene_to_file("res://UI/game_over.tscn")

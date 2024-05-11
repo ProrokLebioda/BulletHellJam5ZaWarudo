@@ -10,8 +10,8 @@ extends Node2D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
+	assign_player_weapon()
 	
 
 func _on_weapon_changed(new_weapon):
@@ -24,7 +24,7 @@ func assign_player_weapon():
 	var wp = Player.current_weapon as WeaponBase
 	var wp_enum : Weapons.WeaponType = wp.weapon_type
 	var weapon= Weapons.weapons[wp_enum]
-	if weapon:
+	if weapon != null:
 		var weapon_for_player = weapon
 		player_weapon_node.add_child(weapon_for_player)
 		current_weapon = weapon_for_player

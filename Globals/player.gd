@@ -33,3 +33,8 @@ var current_weapon : WeaponBase:
 func player_invulnerable_timer():
 	await get_tree().create_timer(0.5).timeout
 	is_vulnerable = true
+	
+func reset_player_stats():
+	health = health_base
+	is_vulnerable = true
+	current_weapon = Weapons.get_basic_weapon()
