@@ -15,3 +15,5 @@ script = ExtResource("1_vcq5y")
 [node name="Player" type="Node2D" parent="Projectiles"]
 
 [node name="Enemies" type="Node2D" parent="Projectiles"]
+
+[connection signal="shoot" from="Ship" to="." method="_on_ship_shoot"]
