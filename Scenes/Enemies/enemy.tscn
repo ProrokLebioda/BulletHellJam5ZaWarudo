@@ -1,19 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://pird2un13vsw"]
+[gd_scene load_steps=4 format=3 uid="uid://pird2un13vsw"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_fnuih"]
+[ext_resource type="PackedScene" uid="uid://dikxtq7kcrael" path="res://Scenes/Ship/projectiles/enemy_laser.tscn" id="2_6jlvt"]
+[ext_resource type="PackedScene" uid="uid://bi1dhnqfm0qev" path="res://Scenes/Weapons/weapon.tscn" id="2_pn1lo"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("enemy_weapon")]
 collision_layer = 2
 collision_mask = 39
 motion_mode = 1
 script = ExtResource("1_fnuih")
+enemy_weapon = NodePath("EnemyWeapon/WeaponMounts/WeaponMount/Weapon")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+[node name="EnemyWeapon" type="Node2D" parent="."]
+
+[node name="WeaponMounts" type="Node2D" parent="EnemyWeapon"]
+
+[node name="WeaponMount" type="Marker2D" parent="EnemyWeapon/WeaponMounts"]
+
+[node name="Weapon" parent="EnemyWeapon/WeaponMounts/WeaponMount" instance=ExtResource("2_pn1lo")]
+custom_projectile_scene = ExtResource("2_6jlvt")
+
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="InvulnerableTimer" type="Timer" parent="Timers"]
 
+[node name="WeaponTimer" type="Timer" parent="Timers"]
+
 [connection signal="timeout" from="Timers/InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]
+[connection signal="timeout" from="Timers/WeaponTimer" to="." method="_on_weapon_timer_timeout"]
