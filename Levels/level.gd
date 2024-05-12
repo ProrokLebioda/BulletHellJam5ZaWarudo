@@ -9,7 +9,7 @@ extends Node2D
 
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
 	
@@ -42,3 +42,8 @@ func _on_ship_shoot(pos):
 func _on_enemy_simple_ufo_enemy_shoot(pos, dir, projectile):
 	enemies_projectiles_node.add_child(projectile)
 	
+
+
+func _on_enemy_spawner_spawn_enemy_at(pos, enemy: EnemyBase):
+	# connect signal for shoot, TODO: Make it universal
+	enemy.connect("enemy_shoot", _on_enemy_simple_ufo_enemy_shoot)

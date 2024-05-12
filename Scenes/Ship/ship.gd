@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 # Shooting
 var can_shoot : bool = true
-@export var weapon_cooldown: float = 0.5 
+@export var weapon_cooldown: float = 0.2 
 @onready var weapon_cooldown_timer = $WeaponCooldownTimer
 var disp_size : Vector2i
 # weapon mounts

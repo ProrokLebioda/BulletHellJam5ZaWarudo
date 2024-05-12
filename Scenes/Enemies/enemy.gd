@@ -10,7 +10,7 @@ var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
 var is_vulnerable : bool = true
 var can_shoot : bool = true
-var weapon_cooldown : float = 0.5
+var weapon_cooldown : float = 1
 
 signal enemy_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
 
