@@ -21,13 +21,12 @@ func _on_weapon_changed(new_weapon):
 	assign_player_weapon()
 
 func assign_player_weapon():
+	# TODO: Change so it works with different weapon types maybe?
 	var wp = Player.current_weapon as WeaponBase
 	var wp_enum : Weapons.WeaponType = wp.weapon_type
-	var weapon= Weapons.weapons[wp_enum]
-	if weapon:
-		var weapon_for_player = weapon
-		player_weapon_node.add_child(weapon_for_player)
-		current_weapon = weapon_for_player
+	var weapon_for_player = wp
+	player_weapon_node.add_child(weapon_for_player)
+	current_weapon = weapon_for_player
 
 
 # Callables
