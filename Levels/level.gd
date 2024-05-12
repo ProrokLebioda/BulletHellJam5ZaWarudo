@@ -3,17 +3,20 @@ extends Node2D
 @onready var player_projectiles_node = $Projectiles/Player
 @onready var enemies_projectiles_node = $Projectiles/Enemies
 
+
 # Player weapon stuff
 @export var current_weapon : WeaponBase
 @onready var player_weapon_node = $PlayerWeapon
 
+
+# For moving player to correct pos
+var mouse_pos_before_pause : Vector2 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
 	
-
 func _on_weapon_changed(new_weapon):
 	var all_weapons = player_weapon_node.get_children()
 	for wp in all_weapons:
@@ -27,7 +30,6 @@ func assign_player_weapon():
 	var weapon_for_player = wp
 	player_weapon_node.add_child(weapon_for_player)
 	current_weapon = weapon_for_player
-
 
 # Callables
 func _on_ship_shoot(pos):
