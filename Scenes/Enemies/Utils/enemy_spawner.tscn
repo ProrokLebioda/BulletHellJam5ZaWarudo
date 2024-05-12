@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://domfenqltncx5"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Utils/enemy_spawner.gd" id="1_5155j"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_5155j")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-352, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints"]
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(393, 0)
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[connection signal="timeout" from="Timers/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
