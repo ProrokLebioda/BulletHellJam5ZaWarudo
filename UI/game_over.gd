@@ -7,7 +7,7 @@ func _ready():
 func _on_retry_button_pressed():
 	# TODO: Change to access from global list
 	Player.reset_player_stats()
-	get_tree().change_scene_to_file("res://Levels/level.tscn")
+	get_tree().change_scene_to_file("res://game.tscn")
 
 
 func _on_main_meny_button_pressed():
