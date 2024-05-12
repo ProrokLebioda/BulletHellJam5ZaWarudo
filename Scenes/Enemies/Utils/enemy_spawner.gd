@@ -11,7 +11,7 @@ signal spawn_enemy_at(pos, enemy : EnemyBase)
 
 @export var spawn_continuously : bool = true
 @export var enemy_types : Array[EnemyBase] = []
-@export var spawn_time : float = 1.0
+@export var spawn_time : float = 3.0
 
 
 
