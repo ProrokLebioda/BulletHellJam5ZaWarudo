@@ -49,3 +49,13 @@ func _on_enemy_simple_ufo_enemy_shoot(pos, dir, projectile):
 func _on_enemy_spawner_spawn_enemy_at(pos, enemy: EnemyBase):
 	# connect signal for shoot, TODO: Make it universal
 	enemy.connect("enemy_shoot", _on_enemy_simple_ufo_enemy_shoot)
+
+
+func _on_enemy_kill_zone_body_entered(body):
+	if "purge" in body:
+		body.purge()
+
+
+func _on_enemy_kill_zone_area_entered(area):
+	if "purge" in area:
+		area.purge()
