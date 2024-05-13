@@ -43,6 +43,8 @@ func hit(damage : int):
 		health = 0
 		queue_free()
 
+func purge():
+	queue_free()
 
 func _on_invulnerable_timer_timeout():
 	is_vulnerable = true
