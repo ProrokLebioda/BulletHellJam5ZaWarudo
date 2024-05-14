@@ -1,44 +1,60 @@
 extends Node
 
-enum WeaponType{BASIC, LASER, ROCKET, HOMING, ROTATING}
+enum ProjectileType{BASIC, LASER, ROCKET, HOMING, ROTATING}
+
+enum WeaponType{SINGLE, DOUBLE, TRIPPLE}
 
 @onready var basic_weapon : WeaponBase
 @onready var basic_weapon_scene : PackedScene = preload("res://Scenes/Weapons/weapon.tscn")
-
+@onready var triple_weapon_scene : PackedScene = preload("res://Scenes/Weapons/triple_weapon.tscn")
 
 @onready var weapons : Dictionary
 
+@onready var weapon : WeaponBase
+
 func get_basic_weapon() -> WeaponBase:
 	if !basic_weapon:
-		basic_weapon = basic_weapon_scene.instantiate()
+		basic_weapon = triple_weapon_scene.instantiate()
 	return basic_weapon
 
+func get_weapon(type :WeaponType) -> WeaponBase:
+	
+	if !weapons[type]:
+		populate_weapons()
+		if !weapons[type]:
+			return weapons[type]
+	return weapons[type]
+
+
+func populate_weapons():
+	weapons[WeaponType.SINGLE] = basic_weapon_scene.instantiate()
+	weapons[WeaponType.TRIPPLE] = triple_weapon_scene.instantiate()
+#	weapons[ProjectileType.ROTATING] = rotating_weapon_scene
+
 func _ready():
-	weapons[WeaponType.BASIC] = basic_weapon_scene.instantiate()
-#	weapons[WeaponType.TRIPPLE] = triple_weapon_scene
-#	weapons[WeaponType.ROTATING] = rotating_weapon_scene
+	populate_weapons()
 		
-func weapon_string_to_enum(name: String) ->WeaponType:
+func projectile_string_to_enum(name: String) ->ProjectileType:
 	match(name):
 		"Laser":
-			return WeaponType.LASER
+			return ProjectileType.LASER
 		"Rocket":
-			return WeaponType.ROCKET
+			return ProjectileType.ROCKET
 		"Homing":
-			return WeaponType.HOMING
+			return ProjectileType.HOMING
 		"Rotating":
-			return WeaponType.ROTATING
-	return WeaponType.BASIC
+			return ProjectileType.ROTATING
+	return ProjectileType.BASIC
 
-func weapon_enum_to_string(en : WeaponType)-> String:
+func projectile_enum_to_string(en : ProjectileType)-> String:
 	match(en):
-		WeaponType.LASER:
+		ProjectileType.LASER:
 			return "Laser"
-		WeaponType.ROCKET:
+		ProjectileType.ROCKET:
 			return "Rocket"
-		WeaponType.HOMING:
+		ProjectileType.HOMING:
 			return "Homing"
-		WeaponType.ROTATING:
+		ProjectileType.ROTATING:
 			return "Rotating"
 	return "WeaponBase"
 

@@ -21,10 +21,13 @@ var health = health_base:
 				health = value
 		stat_change.emit()
 
+var curren_weapon_type : Weapons.WeaponType = Weapons.WeaponType.SINGLE
+var current_weapon_projectile : Weapons.ProjectileType = Weapons.ProjectileType.BASIC
+
 var current_weapon : WeaponBase:
 	get:
 		if !current_weapon:
-			current_weapon = Weapons.get_basic_weapon()
+			current_weapon = Weapons.get_weapon(curren_weapon_type)
 		return current_weapon
 	set(new_weapon):
 		current_weapon = new_weapon

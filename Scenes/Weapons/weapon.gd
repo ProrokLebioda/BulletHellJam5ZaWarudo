@@ -6,8 +6,8 @@ class_name WeaponBase
 
 @export var custom_projectile_scene : PackedScene
 var weapon_name : String = "WeaponBase"
-@export var weapon_type : Weapons.WeaponType = Weapons.WeaponType.BASIC 
-
+@export var projectile_type : Weapons.ProjectileType = Weapons.ProjectileType.BASIC 
+@export var weapon_type : Weapons.WeaponType = Weapons.WeaponType.SINGLE
 var projectile : ProjectileBase
 
 func _ready():
