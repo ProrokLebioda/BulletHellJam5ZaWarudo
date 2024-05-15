@@ -41,4 +41,6 @@ func player_invulnerable_timer():
 func reset_player_stats():
 	health = health_base
 	is_vulnerable = true
+	curren_weapon_type = Weapons.WeaponType.SINGLE
+	current_weapon_projectile =  Weapons.ProjectileType.BASIC
 	current_weapon = null
