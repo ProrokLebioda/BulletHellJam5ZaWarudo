@@ -6,6 +6,7 @@ enum WeaponType{SINGLE, DOUBLE, TRIPPLE}
 
 @onready var basic_weapon : WeaponBase
 @onready var basic_weapon_scene : PackedScene = preload("res://Scenes/Weapons/weapon.tscn")
+@onready var double_weapon : PackedScene = preload("res://Scenes/Weapons/double_weapon.tscn")
 @onready var triple_weapon_scene : PackedScene = preload("res://Scenes/Weapons/triple_weapon.tscn")
 
 @onready var weapons : Dictionary
@@ -28,6 +29,7 @@ func get_weapon(type :WeaponType) -> WeaponBase:
 
 func populate_weapons():
 	weapons[WeaponType.SINGLE] = basic_weapon_scene.instantiate()
+	weapons[WeaponType.DOUBLE] = double_weapon.instantiate()
 	weapons[WeaponType.TRIPPLE] = triple_weapon_scene.instantiate()
 #	weapons[ProjectileType.ROTATING] = rotating_weapon_scene
 
