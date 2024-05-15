@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0m63fc140lvx"]
+
+[ext_resource type="Script" path="res://Scenes/Ship/projectiles/rotating_projectile.gd" id="2_1jbqp"]
+[ext_resource type="Texture2D" uid="uid://d4iy147auirip" path="res://Art/projectiles/rotating_green.png" id="3_j2452"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7f64"]
+radius = 6.08276
+
+[node name="RotatingProjectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 34
+script = ExtResource("2_1jbqp")
+rotation_radius = 10.2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_j2452")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f7f64")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
