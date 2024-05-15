@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhv5pync05m0o"]
+[gd_scene load_steps=10 format=3 uid="uid://dhv5pync05m0o"]
 
 [ext_resource type="PackedScene" uid="uid://ctyyvjuf6mil0" path="res://Scenes/Ship/ship.tscn" id="1_63a6j"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_vcq5y"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://domfenqltncx5" path="res://Scenes/Enemies/Utils/enemy_spawner.tscn" id="5_fur05"]
 [ext_resource type="PackedScene" uid="uid://c4ef0es8x8w6x" path="res://Interactables/Pickups/weapon_pickups/triple_pickup.tscn" id="6_f7w3v"]
 [ext_resource type="PackedScene" uid="uid://dyencv4rd12ob" path="res://Interactables/Pickups/weapon_pickups/double_pickup.tscn" id="7_0f0iu"]
+[ext_resource type="PackedScene" uid="uid://ojgp2563n225" path="res://Interactables/Pickups/projectiles_pickups/rotating_projectile_pickup.tscn" id="8_7p84h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfgg0"]
 size = Vector2(954, 120)
@@ -55,6 +56,9 @@ position = Vector2(226, -210)
 
 [node name="DoublePickup" parent="Objects" instance=ExtResource("7_0f0iu")]
 position = Vector2(-271, -253)
+
+[node name="RotatingProjectilePickup" parent="Objects" instance=ExtResource("8_7p84h")]
+position = Vector2(58, -242)
 
 [connection signal="shoot" from="Ship" to="." method="_on_ship_shoot"]
 [connection signal="enemy_shoot" from="Enemies/EnemySimpleUfo" to="." method="_on_enemy_simple_ufo_enemy_shoot"]

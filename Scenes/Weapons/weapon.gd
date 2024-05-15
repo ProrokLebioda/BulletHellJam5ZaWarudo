@@ -2,7 +2,7 @@ extends Node2D
 class_name WeaponBase
 
 # Change later or in derived scenes
-@export var projectile_scene : PackedScene = preload("res://Scenes/Ship/projectiles/player_laser.tscn")
+@export var projectile_scene : PackedScene
 
 var weapon_name : String = "WeaponBase"
 @export var projectile_type : Weapons.ProjectileType = Weapons.ProjectileType.BASIC 

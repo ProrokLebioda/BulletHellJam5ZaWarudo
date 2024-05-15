@@ -22,7 +22,14 @@ var health = health_base:
 		stat_change.emit()
 
 var curren_weapon_type : Weapons.WeaponType = Weapons.WeaponType.SINGLE
-var current_weapon_projectile : Weapons.ProjectileType = Weapons.ProjectileType.BASIC
+var current_weapon_projectile_type : Weapons.ProjectileType = Weapons.ProjectileType.BASIC
+
+var current_projectile : PackedScene:
+	get:
+		return current_projectile
+	set(new_projectile):
+		current_projectile = new_projectile
+		current_weapon.projectile_scene = new_projectile
 
 var current_weapon : WeaponBase:
 	get:
@@ -42,5 +49,5 @@ func reset_player_stats():
 	health = health_base
 	is_vulnerable = true
 	curren_weapon_type = Weapons.WeaponType.SINGLE
-	current_weapon_projectile =  Weapons.ProjectileType.BASIC
+	current_weapon_projectile_type =  Weapons.ProjectileType.BASIC
 	current_weapon = null
