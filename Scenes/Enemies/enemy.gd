@@ -14,6 +14,8 @@ var weapon_cooldown : float = 1
 
 signal enemy_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
 
+
+
 func _physics_process(delta):
 	velocity = dir * speed 
 	move_and_slide()
