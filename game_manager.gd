@@ -2,7 +2,8 @@ extends Node
 class_name GameManager
 @onready var level = $Level
 @onready var pause_menu = $UI/PauseMenu
-
+@onready var scrolling_bg = $Level/ScrollingBackground
+@export var scrolling_shader : ShaderMaterial
 signal toggle_game_paused(is_paused : bool)
 
 var game_paused : bool = false:
@@ -11,6 +12,8 @@ var game_paused : bool = false:
 	set(val):
 		game_paused = val
 		get_tree().paused = game_paused
+		scrolling_shader.set_shader_parameter("speed", 0 if val else Player.scroll_speed)
+		scrolling_bg.material = scrolling_shader
 		toggle_game_paused.emit(game_paused)
 
 func _input(event):

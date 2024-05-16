@@ -6,6 +6,9 @@ signal weapon_changed(weapon : WeaponBase)
 var player_pos : Vector2
 var player_invu_time : float = 0.3
 
+# Peculiar to keep it here, but it is used to simulate movement, even though Player doesn't actually move
+var scroll_speed : float = 0.05
+
 var is_vulnerable: bool = true
 var health_base: int = 10
 var health = health_base:

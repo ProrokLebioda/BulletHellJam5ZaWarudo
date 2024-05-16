@@ -4,6 +4,10 @@ extends Node2D
 @onready var enemies_projectiles_node = $Projectiles/Enemies
 
 
+# Scrolling Background stuff
+@onready var scrolling_background = $ScrollingBackground
+@export var scroll_shader : ShaderMaterial
+
 # Player weapon stuff
 @export var current_weapon : WeaponBase
 @onready var player_weapon_node = $PlayerWeapon
@@ -14,9 +18,14 @@ var mouse_pos_before_pause : Vector2
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	setup_scrolling_background()
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
-	
+
+func setup_scrolling_background():
+	#scroll_shader.set_shader_parameter("speed", 0.05)
+	scrolling_background.material = scroll_shader
+
 func _on_weapon_changed(new_weapon):
 	var all_weapons = player_weapon_node.get_children()
 	for wp in all_weapons:
