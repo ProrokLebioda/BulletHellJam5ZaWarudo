@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp43p0e2pvmfb"]
+
+[ext_resource type="PackedScene" uid="uid://pird2un13vsw" path="res://Scenes/Enemies/enemy.tscn" id="1_g0ptm"]
+[ext_resource type="Texture2D" uid="uid://cxe155vkea38y" path="res://Art/Enemies/boss/boss_01_wasp.png" id="1_keg6g"]
+[ext_resource type="Script" path="res://Scenes/Enemies/bosses/simple_boss.gd" id="2_3n32e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_caihc"]
+radius = 28.0
+height = 94.0
+
+[node name="SimpleBoss" instance=ExtResource("1_g0ptm")]
+script = ExtResource("2_3n32e")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("1_keg6g")
+hframes = 6
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_caihc")
