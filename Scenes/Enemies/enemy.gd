@@ -5,7 +5,7 @@ class_name EnemyBase
 @onready var weapon_timer = $Timers/WeaponTimer
 @onready var weapon_mounts_node = $EnemyWeapon/WeaponMounts
 @export var enemy_weapon : WeaponBase
-var health : int = 4
+@export var health : int = 4
 var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
 var is_vulnerable : bool = true
