@@ -11,7 +11,7 @@ func _on_new_game_button_pressed():
 
 
 func _on_main_menu_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
 
 
 func _on_quit_button_pressed():

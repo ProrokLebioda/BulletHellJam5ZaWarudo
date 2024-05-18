@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpi4qxc0lkgyk"]
+
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_dypt0"]
+[ext_resource type="PackedScene" uid="uid://stpeyj2q7wkb" path="res://settings_menu.tscn" id="2_axhvf"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_dypt0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MainMenuLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+text = "MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NEW GAME"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_axhvf")]
+
+[node name="Credits" type="CanvasLayer" parent="."]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsMenu/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="SettingsMenu"]
