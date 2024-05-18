@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://raeqp1a4u58i"
-path="res://.godot/imported/ship01.png-eab958e0f07df5894c181396e66c51de.ctex"
+uid="uid://cxe155vkea38y"
+path="res://.godot/imported/boss_01_wasp.png-e27e3bdbf0d64c56130c8112d3417ed5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Ship/ship01.png"
-dest_files=["res://.godot/imported/ship01.png-eab958e0f07df5894c181396e66c51de.ctex"]
+source_file="res://Art/Enemies/boss/boss_01_wasp.png"
+dest_files=["res://.godot/imported/boss_01_wasp.png-e27e3bdbf0d64c56130c8112d3417ed5.ctex"]
 
 [params]
 

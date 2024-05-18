@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Weapons="*res://Globals/weapons.gd"
+Enemies="*res://Globals/enemies.gd"
 Player="*res://Globals/player.gd"
 
 [display]

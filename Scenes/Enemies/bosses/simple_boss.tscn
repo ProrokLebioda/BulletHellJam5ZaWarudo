@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp43p0e2pvmfb"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/bosses/simple_boss.gd" id="2_3n32e"]
+
+[node name="SimpleBoss" type="Node2D"]
+script = ExtResource("2_3n32e")
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="InvulnerableTimer" type="Timer" parent="Timers"]
+
+[node name="WeaponTimer" type="Timer" parent="Timers"]
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Paths/Path2D/PathFollow2D"]
+collision_layer = 2
+collision_mask = 57
+
+[node name="Sprite2D" type="Sprite2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0, 2.38419e-07)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0, 2.38419e-07)
+
+[node name="EnemyWeapon" type="Node2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0, 2.38419e-07)
+
+[node name="WeaponMounts" type="Node2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D/EnemyWeapon"]
+
+[node name="WeaponMount" type="Marker2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D/EnemyWeapon/WeaponMounts"]
+position = Vector2(-25, 9)
+
+[connection signal="timeout" from="Timers/InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]
+[connection signal="timeout" from="Timers/WeaponTimer" to="." method="_on_weapon_timer_timeout"]

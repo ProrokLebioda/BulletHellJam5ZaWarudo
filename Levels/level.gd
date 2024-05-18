@@ -59,6 +59,7 @@ func _on_enemy_spawner_spawn_enemy_at(pos, enemy: EnemyBase):
 	enemy.connect("enemy_shoot", _on_enemy_simple_ufo_enemy_shoot)
 
 
+
 func _on_enemy_kill_zone_body_entered(body):
 	if "purge" in body:
 		body.purge()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctyyvjuf6mil0"]
 
 [ext_resource type="Script" path="res://Scenes/Ship/ship.gd" id="1_6b8me"]
-[ext_resource type="Texture2D" uid="uid://hfi5il6bone3" path="res://Art/Ship/ship01.png" id="2_c4oth"]
+[ext_resource type="Texture2D" uid="uid://raeqp1a4u58i" path="res://Art/Ship/ship01.png" id="2_c4oth"]
 
 [node name="Ship" type="CharacterBody2D"]
 collision_mask = 63
