@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://hn5cm7huxyqb"]
+[gd_scene load_steps=2 format=3 uid="uid://c0gig112em846"]
 
-[ext_resource type="Script" path="res://UI/game_over.gd" id="1_wyple"]
+[ext_resource type="Script" path="res://UI/game_complete.gd" id="1_w25w0"]
 
-[node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_wyple")
+[node name="GameComplete" type="CanvasLayer"]
+script = ExtResource("1_w25w0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -17,23 +17,23 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GameOverLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="GameCompletedLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 66
-text = "GAME OVER"
+text = "Game Completed!"
+uppercase = true
 
-[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "RETRY"
+text = "New Game"
 
 [node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "MAIN MENU"
+text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "QUIT"
+text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

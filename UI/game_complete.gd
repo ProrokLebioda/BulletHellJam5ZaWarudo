@@ -4,7 +4,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 
-func _on_retry_button_pressed():
+func _on_new_game_button_pressed():
 	# TODO: Change to access from global list
 	Player.reset_player_stats()
 	get_tree().change_scene_to_file("res://game.tscn")
