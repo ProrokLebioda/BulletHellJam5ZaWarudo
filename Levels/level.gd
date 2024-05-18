@@ -36,7 +36,7 @@ func assign_player_weapon():
 	var wp = Player.current_weapon as WeaponBase
 	var wp_enum : Weapons.ProjectileType = wp.projectile_type
 	var weapon_for_player = wp
-	player_weapon_node.add_child(weapon_for_player)
+	#player_weapon_node.add_child(weapon_for_player)
 	current_weapon = weapon_for_player
 
 # Callables

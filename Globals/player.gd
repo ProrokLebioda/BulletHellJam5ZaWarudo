@@ -29,6 +29,8 @@ var current_weapon_projectile_type : Weapons.ProjectileType = Weapons.Projectile
 
 var current_projectile : PackedScene:
 	get:
+		if !current_projectile:
+			current_projectile = Weapons.get_projectile_scene(current_weapon_projectile_type)
 		return current_projectile
 	set(new_projectile):
 		current_projectile = new_projectile
@@ -40,6 +42,8 @@ var current_weapon : WeaponBase:
 			current_weapon = Weapons.get_weapon(curren_weapon_type)
 		return current_weapon
 	set(new_weapon):
+		if new_weapon:
+			new_weapon.projectile_scene = current_projectile
 		current_weapon = new_weapon
 		weapon_changed.emit(new_weapon)
 
@@ -53,4 +57,5 @@ func reset_player_stats():
 	is_vulnerable = true
 	curren_weapon_type = Weapons.WeaponType.SINGLE
 	current_weapon_projectile_type =  Weapons.ProjectileType.BASIC
+	current_projectile = Weapons.get_projectile_scene(current_weapon_projectile_type)
 	current_weapon = null
