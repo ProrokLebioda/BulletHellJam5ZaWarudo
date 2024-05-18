@@ -1,33 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://csa1tg0vjguw4"]
+[gd_scene load_steps=4 format=3 uid="uid://bw4jkeixcoc2s"]
 
-[ext_resource type="PackedScene" uid="uid://bp43p0e2pvmfb" path="res://Scenes/Enemies/bosses/simple_boss.tscn" id="1_1hday"]
-[ext_resource type="Texture2D" uid="uid://cxe155vkea38y" path="res://Art/Enemies/boss/boss_01_wasp.png" id="2_gwy42"]
-[ext_resource type="PackedScene" uid="uid://pm1jqwjx7eo7" path="res://Scenes/Weapons/triple_weapon.tscn" id="3_6xmv6"]
-[ext_resource type="PackedScene" uid="uid://dikxtq7kcrael" path="res://Scenes/Ship/projectiles/enemy_laser.tscn" id="4_kummd"]
+[ext_resource type="PackedScene" uid="uid://bp43p0e2pvmfb" path="res://Scenes/Enemies/bosses/simple_boss.tscn" id="1_0ptw8"]
+[ext_resource type="PackedScene" uid="uid://0wlhbk3y0avn" path="res://Scenes/Enemies/bosses/wasp_body.tscn" id="2_kct0a"]
 
-[sub_resource type="Curve2D" id="Curve2D_ksw2l"]
+[sub_resource type="Curve2D" id="Curve2D_ly4tl"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 89, 1, 0, 0, 0, 0, 82, -49, 0, 0, 0, 0, 118, -104, 0, 0, 0, 0, 183, -135, 0, 0, 0, 0, 220, -129, 0, 0, 0, 0, 263, -100, 0, 0, 0, 0, 290, 3, 0, 0, 0, 0, 259, 74, 0, 0, 0, 0, 209, 113, 0, 0, 0, 0, 129, 87, 0, 0, 0, 0, 94, 61, 0, 0, 0, 0, 91, 7, 0, 0, 0, 0, -55, 2, 0, 0, 0, 0, -93, 78, 0, 0, 0, 0, -183, 108, 0, 0, 0, 0, -260, 111, 0, 0, 0, 0, -297, 101, 0, 0, 0, 0, -317, 55, 0, 0, 0, 0, -320, -29, 0, 0, 0, 0, -299, -107, 0, 0, 0, 0, -257, -125, 0, 0, 0, 0, -187, -119, 0, 0, 0, 0, -139, -91, 0, 0, 0, 0, -95, -57, 0, 0, 0, 0, -54, 3, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -136, 0, 0, 0, 0, 0, -249, 0, 0, 0, 0, 0, -5, 2, 0, 0, 0, 0, 176, 0, 0, 0, 0, 0, 298, 2, 0, 0, 0, 0, 0, 0)
 }
-point_count = 27
+point_count = 7
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bccjt"]
-radius = 26.0
-height = 94.0
-
-[node name="WaspBoss" instance=ExtResource("1_1hday")]
+[node name="WaspBoss" instance=ExtResource("1_0ptw8")]
 
 [node name="Path2D" parent="Paths" index="0"]
-curve = SubResource("Curve2D_ksw2l")
+curve = SubResource("Curve2D_ly4tl")
 
-[node name="Sprite2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D" index="0"]
-position = Vector2(-1.49012e-08, -1)
-texture = ExtResource("2_gwy42")
-hframes = 6
-
-[node name="CollisionShape2D" parent="Paths/Path2D/PathFollow2D/CharacterBody2D" index="1"]
-rotation = -1.57079
-shape = SubResource("CapsuleShape2D_bccjt")
-
-[node name="TripleWeapon" parent="Paths/Path2D/PathFollow2D/CharacterBody2D/EnemyWeapon/WeaponMounts/WeaponMount" index="0" instance=ExtResource("3_6xmv6")]
-projectile_scene = ExtResource("4_kummd")
+[node name="WaspBody" parent="Paths/Path2D/PathFollow2D" index="0" instance=ExtResource("2_kct0a")]

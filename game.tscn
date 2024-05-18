@@ -16,9 +16,6 @@ scrolling_shader = SubResource("ShaderMaterial_mcj40")
 
 [node name="Level" parent="." instance=ExtResource("1_sk8uc")]
 
-[node name="EnemySimpleUfo" parent="Level/Enemies" index="0"]
-collision_mask = 39
-
 [node name="UI" type="Node" parent="."]
 
 [node name="PauseMenu" parent="UI" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_o8hxs")]

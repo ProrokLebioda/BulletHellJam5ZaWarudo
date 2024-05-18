@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhv5pync05m0o"]
+[gd_scene load_steps=12 format=3 uid="uid://dhv5pync05m0o"]
 
 [ext_resource type="PackedScene" uid="uid://ctyyvjuf6mil0" path="res://Scenes/Ship/ship.tscn" id="1_63a6j"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_vcq5y"]
 [ext_resource type="Shader" path="res://shaders/scrolling.gdshader" id="2_rqj0d"]
-[ext_resource type="PackedScene" uid="uid://bb25nttx8v6nu" path="res://Scenes/Enemies/enemy_simple_ufo.tscn" id="3_ed0ne"]
 [ext_resource type="PackedScene" uid="uid://c78xwe7iom0xl" path="res://UI/hud.tscn" id="4_uv5kp"]
-[ext_resource type="PackedScene" uid="uid://csa1tg0vjguw4" path="res://Scenes/Enemies/bosses/wasp_boss.tscn" id="5_2usfs"]
-[ext_resource type="PackedScene" uid="uid://domfenqltncx5" path="res://Scenes/Enemies/Utils/enemy_spawner.tscn" id="5_fur05"]
+[ext_resource type="PackedScene" uid="uid://bw4jkeixcoc2s" path="res://Scenes/Enemies/bosses/wasp_boss.tscn" id="5_uc75x"]
 [ext_resource type="PackedScene" uid="uid://c4ef0es8x8w6x" path="res://Interactables/Pickups/weapon_pickups/triple_pickup.tscn" id="6_f7w3v"]
 [ext_resource type="PackedScene" uid="uid://dyencv4rd12ob" path="res://Interactables/Pickups/weapon_pickups/double_pickup.tscn" id="7_0f0iu"]
 [ext_resource type="PackedScene" uid="uid://ojgp2563n225" path="res://Interactables/Pickups/projectiles_pickups/rotating_projectile_pickup.tscn" id="8_7p84h"]
@@ -30,13 +28,8 @@ scroll_shader = SubResource("ShaderMaterial_cssji")
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="EnemySimpleUfo" parent="Enemies" instance=ExtResource("3_ed0ne")]
-position = Vector2(-94, -462)
-collision_mask = 39
-motion_mode = 0
-
-[node name="WaspBoss" parent="Enemies" instance=ExtResource("5_2usfs")]
-position = Vector2(5, -371)
+[node name="WaspBoss" parent="Enemies" instance=ExtResource("5_uc75x")]
+position = Vector2(104, -431)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
@@ -45,9 +38,6 @@ position = Vector2(5, -371)
 [node name="Enemies" type="Node2D" parent="Projectiles"]
 
 [node name="PlayerWeapon" type="Node2D" parent="."]
-
-[node name="EnemySpawner" parent="." instance=ExtResource("5_fur05")]
-position = Vector2(-1, -592)
 
 [node name="HUD" parent="." instance=ExtResource("4_uv5kp")]
 
@@ -76,10 +66,6 @@ position = Vector2(58, -242)
 process_mode = 1
 
 [connection signal="shoot" from="Ship" to="." method="_on_ship_shoot"]
-[connection signal="enemy_shoot" from="Enemies/EnemySimpleUfo" to="." method="_on_enemy_simple_ufo_enemy_shoot"]
 [connection signal="enemy_shoot" from="Enemies/WaspBoss" to="." method="_on_enemy_simple_ufo_enemy_shoot"]
-[connection signal="spawn_enemy_at" from="EnemySpawner" to="." method="_on_enemy_spawner_spawn_enemy_at"]
 [connection signal="area_entered" from="Zones/EnemyKillZone" to="." method="_on_enemy_kill_zone_area_entered"]
 [connection signal="body_entered" from="Zones/EnemyKillZone" to="." method="_on_enemy_kill_zone_body_entered"]
-
-[editable path="EnemySpawner"]

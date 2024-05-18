@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://0wlhbk3y0avn"]
+
+[ext_resource type="PackedScene" uid="uid://cj42q3cl3qhmm" path="res://Scenes/Enemies/bosses/boss_body.tscn" id="1_clnik"]
+[ext_resource type="Texture2D" uid="uid://cxe155vkea38y" path="res://Art/Enemies/boss/boss_01_wasp.png" id="2_0nbpn"]
+[ext_resource type="PackedScene" uid="uid://pm1jqwjx7eo7" path="res://Scenes/Weapons/triple_weapon.tscn" id="3_sh83n"]
+[ext_resource type="PackedScene" uid="uid://dikxtq7kcrael" path="res://Scenes/Ship/projectiles/enemy_laser.tscn" id="4_4jbsv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbxtj"]
+radius = 27.0
+height = 94.0
+
+[node name="WaspBody" instance=ExtResource("1_clnik")]
+health = 20
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0nbpn")
+hframes = 6
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_vbxtj")
+
+[node name="TripleWeapon" parent="EnemyWeapon/WeaponMounts/WeaponMount" index="0" instance=ExtResource("3_sh83n")]
+projectile_scene = ExtResource("4_4jbsv")
