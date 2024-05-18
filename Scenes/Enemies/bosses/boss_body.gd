@@ -17,6 +17,7 @@ var can_shoot : bool = true
 var weapon_cooldown : float = 1
 
 signal boss_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
+signal boss_died()
 
 func _physics_process(delta):
 	# enemy shooting
@@ -42,6 +43,7 @@ func hit(damage : int):
 		
 	if health <= 0:
 		health = 0
+		boss_died.emit()
 		queue_free()
 
 func purge():
