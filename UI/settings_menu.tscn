@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://stpeyj2q7wkb"]
 
-[ext_resource type="Script" path="res://settings_menu.gd" id="1_nqegg"]
+[ext_resource type="Script" path="res://UI/settings_menu.gd" id="1_6leqp"]
 
 [node name="SettingsMenu" type="CanvasLayer"]
 visible = false
-script = ExtResource("1_nqegg")
+script = ExtResource("1_6leqp")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

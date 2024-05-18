@@ -13,10 +13,11 @@ extends CanvasLayer
 @onready var credits = $Credits
 
 func _on_new_game_button_pressed():
+	Player.reset_player_stats()
 	get_tree().change_scene_to_file("res://game.tscn")
 
 func _on_settings_button_pressed():
-	pass # Replace with function body.
+	toggle_settings_menu()
 
 func _on_credits_button_pressed():
 	pass # Replace with function body.
@@ -27,4 +28,13 @@ func _on_quit_button_pressed():
 # Settings
 	
 func _on_back_button_pressed():
-	pass # Replace with function body.
+	toggle_settings_menu()
+
+func toggle_settings_menu():
+	settings_menu.visible = !settings_menu.visible
+	if settings_menu.visible:
+		settings_back_button.grab_focus()
+	
+	main_menu_container.visible = !main_menu_container.visible
+	if main_menu_container.visible:
+		settings_button.grab_focus()
