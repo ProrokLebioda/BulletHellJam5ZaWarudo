@@ -2,6 +2,7 @@ extends AudioStreamPlayer
 
 const level_music = preload("res://Audio/Music/3rdParty/Three Red Hearts - Pixel War 2.ogg")
 @export var hit_sound : AudioStream
+@onready var SFX_BUS_ID = AudioServer.get_bus_index(("SFX"))
 func _play_music(music : AudioStream, volume = 0.0):
 	if stream == music:
 		return
@@ -15,6 +16,7 @@ func play_music_level(volume = 0.0):
 # useful for transition scene
 func play_FX(stream : AudioStream, volume = 0.0):
 	var fx_player = AudioStreamPlayer.new()
+	fx_player.bus = "SFX"
 	fx_player.stream = stream
 	fx_player.name = "FX_PLAYER"
 	fx_player.volume_db = volume
