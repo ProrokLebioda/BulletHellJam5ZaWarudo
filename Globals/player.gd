@@ -2,9 +2,16 @@ extends Node
 
 signal stat_change
 signal weapon_changed(weapon : WeaponBase)
+signal special_state_change(is_ready : bool)
 
 var player_pos : Vector2
 var player_invu_time : float = 0.3
+var special_ready : bool = true:
+	get:
+		return special_ready
+	set(value):
+		special_ready = value
+		special_state_change.emit(special_ready)
 
 # Peculiar to keep it here, but it is used to simulate movement, even though Player doesn't actually move
 var scroll_speed : float = 0.05
@@ -53,6 +60,7 @@ func player_invulnerable_timer():
 	is_vulnerable = true
 	
 func reset_player_stats():
+	special_ready = true
 	health = health_base
 	is_vulnerable = true
 	curren_weapon_type = Weapons.WeaponType.SINGLE
