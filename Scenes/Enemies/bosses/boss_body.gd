@@ -18,9 +18,9 @@ var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
 var is_vulnerable : bool = true
 var can_shoot : bool = true
-var weapon_cooldown : float = 1
+@export var weapon_cooldown : float
 
-signal boss_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
+signal boss_shoot(pos : Vector2, _dir : Vector2, projectile: ProjectileBase)
 signal boss_died()
 
 func _physics_process(delta):
@@ -29,6 +29,7 @@ func _physics_process(delta):
 
 func shoot():
 	if can_shoot:
+		weapon_timer.start(weapon_cooldown)
 		for mount in weapon_mounts_node.get_children():
 			# change direction to one going for player?
 			var wp = mount.get_child(0) as WeaponBase
@@ -37,7 +38,6 @@ func shoot():
 				boss_shoot.emit(mount.global_position,dir, projectile)
 			
 		can_shoot = false
-		weapon_timer.start(weapon_cooldown)
 	
 func hit(damage : int):
 	if is_vulnerable:

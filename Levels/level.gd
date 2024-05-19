@@ -15,10 +15,6 @@ extends Node2D
 @export var current_weapon : WeaponBase
 @onready var player_weapon_node = $PlayerWeapon
 
-
-
-
-
 func _ready():
 	if get_tree().paused:
 		get_tree().paused = false
