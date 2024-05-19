@@ -41,6 +41,7 @@ func _physics_process(delta):
 		can_special = false
 		special_cooldown_timer.start(special_cooldown)
 		special_attack_shot.emit()
+		Player.special_ready = can_special
 
 
 func hit(damage:int):
@@ -58,6 +59,7 @@ func _on_weapon_cooldown_timer_timeout():
 
 func _on_special_cooldown_timer_timeout():
 	can_special = true
+	Player.special_ready = can_special
 
 
 func _on_special_attack_shot():
