@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 const level_music = preload("res://Audio/Music/3rdParty/Three Red Hearts - Pixel War 2.ogg")
-
+@export var hit_sound : AudioStream
 func _play_music(music : AudioStream, volume = 0.0):
 	if stream == music:
 		return

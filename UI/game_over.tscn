@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://hn5cm7huxyqb"]
+[gd_scene load_steps=3 format=3 uid="uid://hn5cm7huxyqb"]
 
 [ext_resource type="Script" path="res://UI/game_over.gd" id="1_wyple"]
+[ext_resource type="AudioStream" uid="uid://dhlcr4h2skg0s" path="res://Audio/VFX/Retro Negative Long 12.wav" id="2_e06of"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_wyple")
+game_over_music = ExtResource("2_e06of")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

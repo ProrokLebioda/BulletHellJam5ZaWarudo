@@ -10,6 +10,8 @@ var can_special : bool = true
 @onready var special_cooldown_timer = $SpecialCooldownTimer
 @onready var special_weapon = $SpecialWeapon
 
+@export var special_attack_ready_sound : AudioStream 
+
 var disp_size : Vector2i
 # weapon mounts
 
@@ -48,7 +50,7 @@ func hit(damage:int):
 	if Player.is_vulnerable:
 		Player.health-=damage
 		print("Player hit for ", damage, " damage!")
-		
+		AudioPlayer.play_FX(AudioPlayer.hit_sound, -10.0)
 	if Player.health <= 0:
 		Player.health = 0
 		#queue_free()
@@ -60,6 +62,7 @@ func _on_weapon_cooldown_timer_timeout():
 func _on_special_cooldown_timer_timeout():
 	can_special = true
 	Player.special_ready = can_special
+	AudioPlayer.play_FX(special_attack_ready_sound, -12.0)
 
 
 func _on_special_attack_shot():

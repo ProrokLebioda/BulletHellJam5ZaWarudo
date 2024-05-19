@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ojgp2563n225"]
+[gd_scene load_steps=6 format=3 uid="uid://ojgp2563n225"]
 
 [ext_resource type="PackedScene" uid="uid://d3p7tjaxv8gvo" path="res://Interactables/Pickups/item_pickup.tscn" id="1_nr3tp"]
 [ext_resource type="Texture2D" uid="uid://cnottv5fw3gfc" path="res://Art/interactables/pickups/projectiles/pckp_proj_rotating.png" id="2_6w4nv"]
 [ext_resource type="Script" path="res://Interactables/Pickups/projectiles_pickups/rotating_projectile_pickup.gd" id="2_r8h8j"]
+[ext_resource type="AudioStream" uid="uid://d4eeddco77eco" path="res://Audio/VFX/Retro PowerUP 09.wav" id="3_ku8tq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6r1lc"]
 radius = 23.0217
@@ -10,6 +11,7 @@ radius = 23.0217
 [node name="RotatingProjectilePickup" instance=ExtResource("1_nr3tp")]
 script = ExtResource("2_r8h8j")
 projectile_enum = 4
+pickup_sound = ExtResource("3_ku8tq")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_6r1lc")

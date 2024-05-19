@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7lo08f6g8wg6"]
+[gd_scene load_steps=6 format=3 uid="uid://c7lo08f6g8wg6"]
 
 [ext_resource type="PackedScene" uid="uid://d3p7tjaxv8gvo" path="res://Interactables/Pickups/item_pickup.tscn" id="1_0xty3"]
 [ext_resource type="Texture2D" uid="uid://3u2uaqcib006" path="res://Art/interactables/pickups/general/pckp_health.png" id="2_fkakq"]
 [ext_resource type="Script" path="res://Interactables/Pickups/general_pickups/health_pickup.gd" id="2_mxbg7"]
+[ext_resource type="AudioStream" uid="uid://cgrvglw1juap" path="res://Audio/VFX/Retro PowerUP StereoUP 05.wav" id="3_g1jm8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgy6d"]
 radius = 23.0
@@ -10,6 +11,7 @@ radius = 23.0
 [node name="HealthPickup" instance=ExtResource("1_0xty3")]
 script = ExtResource("2_mxbg7")
 healing_power = 1
+pickup_sound = ExtResource("3_g1jm8")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_vgy6d")

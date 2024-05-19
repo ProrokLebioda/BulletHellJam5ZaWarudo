@@ -21,6 +21,8 @@ var mouse_pos_before_pause : Vector2
 
 
 func _ready():
+	if get_tree().paused:
+		get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	Input.warp_mouse(start_point.position)
 	setup_scrolling_background()
