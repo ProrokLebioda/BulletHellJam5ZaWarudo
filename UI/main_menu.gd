@@ -12,6 +12,14 @@ extends CanvasLayer
 @onready var settings_back_button = $SettingsMenu/MarginContainer/VBoxContainer/BackButton
 @onready var credits = $Credits
 
+@export var main_menu_music : AudioStream
+
+func _ready():
+	if get_tree().paused:
+		get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	AudioPlayer._play_music(main_menu_music, -10.0)
+
 func _on_new_game_button_pressed():
 	Player.reset_player_stats()
 	get_tree().change_scene_to_file("res://game.tscn")

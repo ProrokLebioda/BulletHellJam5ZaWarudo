@@ -40,6 +40,7 @@ func hit(damage : int):
 		health-=damage
 		is_vulnerable = false
 		invulnerable_timer.start(invulnerable_time)
+		AudioPlayer.play_FX(AudioPlayer.hit_sound, -15.0)
 		
 	if health <= 0:
 		health = 0

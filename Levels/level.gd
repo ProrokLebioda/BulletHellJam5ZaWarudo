@@ -21,11 +21,14 @@ var mouse_pos_before_pause : Vector2
 
 
 func _ready():
+	if get_tree().paused:
+		get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	Input.warp_mouse(start_point.position)
 	setup_scrolling_background()
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
+	AudioPlayer.play_music_level(-12.0)
 
 func setup_scrolling_background():
 	#scroll_shader.set_shader_parameter("speed", 0.05)

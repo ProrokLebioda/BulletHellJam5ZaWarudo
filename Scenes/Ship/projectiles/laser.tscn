@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvasjpp4l5xyy"]
+[gd_scene load_steps=3 format=3 uid="uid://bvasjpp4l5xyy"]
 
 [ext_resource type="Script" path="res://Scenes/Ship/projectiles/laser.gd" id="1_ppxl0"]
+[ext_resource type="AudioStream" uid="uid://8kysk5cqj7ir" path="res://Audio/VFX/weapons/Retro Weapon Laser 25.wav" id="2_yn37m"]
 
 [node name="Laser" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ppxl0")
+projectile_shoot_sound = ExtResource("2_yn37m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)

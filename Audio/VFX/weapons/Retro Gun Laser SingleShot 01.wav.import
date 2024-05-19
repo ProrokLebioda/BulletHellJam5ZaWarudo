@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3ioy583prahg"
+path="res://.godot/imported/Retro Gun Laser SingleShot 01.wav-1dbc9885cda54efb81e045b57986192b.sample"
+
+[deps]
+
+source_file="res://Audio/VFX/weapons/Retro Gun Laser SingleShot 01.wav"
+dest_files=["res://.godot/imported/Retro Gun Laser SingleShot 01.wav-1dbc9885cda54efb81e045b57986192b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qodb42m6lj8l"]
+
+[ext_resource type="Script" path="res://Globals/Audio/audio_player.gd" id="1_q53p0"]
+[ext_resource type="AudioStream" uid="uid://ns0fmi7kabcc" path="res://Audio/VFX/Retro Impact Punch 07.wav" id="2_mgbgx"]
+
+[node name="audio_player" type="AudioStreamPlayer"]
+process_mode = 3
+bus = &"Music"
+script = ExtResource("1_q53p0")
+hit_sound = ExtResource("2_mgbgx")

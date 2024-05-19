@@ -1,8 +1,8 @@
 extends CanvasLayer
-
+@export var game_over_music : AudioStream
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
-
+	AudioPlayer._play_music(game_over_music, -12.0)
 
 func _on_retry_button_pressed():
 	# TODO: Change to access from global list

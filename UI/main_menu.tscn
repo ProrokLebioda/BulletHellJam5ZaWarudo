@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpi4qxc0lkgyk"]
+[gd_scene load_steps=4 format=3 uid="uid://cpi4qxc0lkgyk"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_dypt0"]
 [ext_resource type="PackedScene" uid="uid://stpeyj2q7wkb" path="res://UI/settings_menu.tscn" id="2_axhvf"]
+[ext_resource type="AudioStream" uid="uid://deh2rynls3ltc" path="res://Audio/Music/3rdParty/Retro Ambience Short 09.wav" id="2_qsn47"]
 
 [node name="MainMenu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_dypt0")
+main_menu_music = ExtResource("2_qsn47")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

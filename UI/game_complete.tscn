@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0gig112em846"]
+[gd_scene load_steps=3 format=3 uid="uid://c0gig112em846"]
 
 [ext_resource type="Script" path="res://UI/game_complete.gd" id="1_w25w0"]
+[ext_resource type="AudioStream" uid="uid://ijm86cu357cm" path="res://Audio/VFX/Retro Success Melody 01 - sawtooth lead 1.wav" id="2_kgaij"]
 
 [node name="GameComplete" type="CanvasLayer"]
 script = ExtResource("1_w25w0")
+game_completed_music = ExtResource("2_kgaij")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
