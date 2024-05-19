@@ -4,6 +4,10 @@ class_name GameManager
 @onready var pause_menu = $UI/PauseMenu
 @onready var scrolling_bg = $Level/ScrollingBackground
 @export var scrolling_shader : ShaderMaterial
+
+# For moving player to correct pos
+var mouse_pos_before_pause : Vector2 
+
 signal toggle_game_paused(is_paused : bool)
 
 var game_paused : bool = false:
@@ -21,11 +25,17 @@ func _input(event):
 		_on_pause()
 
 func _on_pause():
+	if !game_paused:
+		var mouse_pos_viewport = get_viewport().get_mouse_position()
+		mouse_pos_before_pause = mouse_pos_viewport
+		
 	game_paused = !game_paused
 	if game_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+		#Input.warp_mouse(mouse_pos_before_pause)
+		get_viewport().warp_mouse(mouse_pos_before_pause)
 
 	
 	

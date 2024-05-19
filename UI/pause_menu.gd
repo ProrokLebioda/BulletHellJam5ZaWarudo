@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export var game_manager : GameManager
-
+var mouse_pos_before_pause : Vector2
 signal unpause
 
 func _ready():
@@ -11,9 +11,12 @@ func _ready():
 func _on_game_manager_toggle_game_paused(is_paused : bool):
 	if is_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+		var mouse_pos_viewport = get_viewport().get_mouse_position()
+		mouse_pos_before_pause = mouse_pos_viewport
 		show()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+		get_viewport().warp_mouse(mouse_pos_before_pause)
 		hide()
 
 
