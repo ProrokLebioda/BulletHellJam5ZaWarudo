@@ -26,6 +26,7 @@ func _ready():
 	setup_scrolling_background()
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
+	AudioPlayer.play_music_level(-12.0)
 
 func setup_scrolling_background():
 	#scroll_shader.set_shader_parameter("speed", 0.05)

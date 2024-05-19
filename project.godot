@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 Weapons="*res://Globals/weapons.gd"
 Enemies="*res://Globals/enemies.gd"
 Player="*res://Globals/player.gd"
+AudioPlayerScript="*res://Globals/Audio/audio_player.gd"
+AudioPlayer="*res://Globals/Audio/audio_player.tscn"
 
 [display]
 
