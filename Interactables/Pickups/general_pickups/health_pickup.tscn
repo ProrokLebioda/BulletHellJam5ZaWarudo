@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7lo08f6g8wg6"]
+
+[ext_resource type="PackedScene" uid="uid://d3p7tjaxv8gvo" path="res://Interactables/Pickups/item_pickup.tscn" id="1_0xty3"]
+[ext_resource type="Texture2D" uid="uid://3u2uaqcib006" path="res://Art/interactables/pickups/general/pckp_health.png" id="2_fkakq"]
+[ext_resource type="Script" path="res://Interactables/Pickups/general_pickups/health_pickup.gd" id="2_mxbg7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgy6d"]
+radius = 23.0
+
+[node name="HealthPickup" instance=ExtResource("1_0xty3")]
+script = ExtResource("2_mxbg7")
+healing_power = 1
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_vgy6d")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_fkakq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
