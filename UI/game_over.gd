@@ -1,8 +1,14 @@
 extends CanvasLayer
+
+@onready var score_value = $MarginContainer/VBoxContainer/HBoxContainer/ScoreValue
+
 @export var game_over_music : AudioStream
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	AudioPlayer._play_music(game_over_music, -12.0)
+	score_value.set_text(str(Player.player_score))
 
 func _on_retry_button_pressed():
 	# TODO: Change to access from global list

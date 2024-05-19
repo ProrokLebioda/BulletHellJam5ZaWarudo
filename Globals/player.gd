@@ -4,6 +4,13 @@ signal stat_change
 signal weapon_changed(weapon : WeaponBase)
 signal special_state_change(is_ready : bool)
 
+var player_score : int = 0:
+	get:
+		return player_score
+	set(value):
+		player_score = value
+		stat_change.emit()
+
 var player_pos : Vector2
 var player_invu_time : float = 0.3
 var special_ready : bool = true:
@@ -63,6 +70,7 @@ func reset_player_stats():
 	special_ready = true
 	health = health_base
 	is_vulnerable = true
+	player_score = 0
 	curren_weapon_type = Weapons.WeaponType.SINGLE
 	current_weapon_projectile_type =  Weapons.ProjectileType.BASIC
 	current_projectile = Weapons.get_projectile_scene(current_weapon_projectile_type)
