@@ -29,5 +29,10 @@ projectile_scene = ExtResource("2_6jlvt")
 
 [node name="WeaponTimer" type="Timer" parent="Timers"]
 
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+
 [connection signal="timeout" from="Timers/InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]
 [connection signal="timeout" from="Timers/WeaponTimer" to="." method="_on_weapon_timer_timeout"]

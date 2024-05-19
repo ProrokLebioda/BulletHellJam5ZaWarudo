@@ -4,6 +4,8 @@ signal stat_change
 signal weapon_changed(weapon : WeaponBase)
 signal special_state_change(is_ready : bool)
 
+var ram_damage : int = 3
+
 var player_score : int = 0:
 	get:
 		return player_score

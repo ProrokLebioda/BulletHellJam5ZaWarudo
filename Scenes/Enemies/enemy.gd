@@ -7,6 +7,7 @@ class_name EnemyBase
 @export var enemy_weapon : WeaponBase
 @export var health : int = 4
 @export var point_value : int = 10
+@export var collision_damage : int = 3
 var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
 var is_vulnerable : bool = true

@@ -11,6 +11,7 @@ var state : Enemies.State
 @export var enemy_weapon : WeaponBase
 @export var health : int = 4
 @export var point_value : int = 1000
+@export var collision_damage : int = 10
 
 var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
@@ -68,3 +69,9 @@ func change_state():
 			pass
 		Enemies.SHOOTING:
 			pass
+
+
+func _on_hurt_area_body_entered(body):
+	if "hit" in body:
+		body.hit(collision_damage)
+		hit(Player.ram_damage)

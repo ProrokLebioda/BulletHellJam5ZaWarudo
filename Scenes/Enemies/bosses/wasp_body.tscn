@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0wlhbk3y0avn"]
+[gd_scene load_steps=7 format=3 uid="uid://0wlhbk3y0avn"]
 
 [ext_resource type="PackedScene" uid="uid://cj42q3cl3qhmm" path="res://Scenes/Enemies/bosses/boss_body.tscn" id="1_clnik"]
 [ext_resource type="Texture2D" uid="uid://cxe155vkea38y" path="res://Art/Enemies/boss/boss_01_wasp.png" id="2_0nbpn"]
@@ -8,6 +8,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbxtj"]
 radius = 27.0
 height = 94.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sigci"]
+radius = 28.0
+height = 96.0
 
 [node name="WaspBody" instance=ExtResource("1_clnik")]
 health = 20
@@ -22,3 +26,7 @@ shape = SubResource("CapsuleShape2D_vbxtj")
 
 [node name="TripleWeapon" parent="EnemyWeapon/WeaponMounts/WeaponMount" index="0" instance=ExtResource("3_sh83n")]
 projectile_scene = ExtResource("4_4jbsv")
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_sigci")

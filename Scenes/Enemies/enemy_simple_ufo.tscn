@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb25nttx8v6nu"]
+[gd_scene load_steps=6 format=3 uid="uid://bb25nttx8v6nu"]
 
 [ext_resource type="PackedScene" uid="uid://pird2un13vsw" path="res://Scenes/Enemies/enemy.tscn" id="1_ilf27"]
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_simple_ufo.gd" id="2_4nilo"]
@@ -7,6 +7,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8ao1"]
 radius = 7.00001
 height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d83vr"]
+radius = 8.0
+height = 42.0
 
 [node name="EnemySimpleUfo" instance=ExtResource("1_ilf27")]
 script = ExtResource("2_4nilo")
@@ -18,3 +22,9 @@ texture = ExtResource("2_xy0ap")
 [node name="CollisionShape2D" parent="." index="1"]
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_r8ao1")
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_d83vr")
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
