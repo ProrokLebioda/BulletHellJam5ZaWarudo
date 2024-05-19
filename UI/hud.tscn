@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c78xwe7iom0xl"]
+[gd_scene load_steps=4 format=3 uid="uid://c78xwe7iom0xl"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_jrn6a"]
+[ext_resource type="Texture2D" uid="uid://gqvynahn0n4n" path="res://Art/icons/special_beam_ready.png" id="2_dc22l"]
+[ext_resource type="Texture2D" uid="uid://bdroyqqeuw5xr" path="res://Art/icons/special_beam_waiting.png" id="3_x021u"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_jrn6a")
+beam_ready_texture = ExtResource("2_dc22l")
+beam_waiting_texture = ExtResource("3_x021u")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -19,6 +23,13 @@ theme_override_constants/margin_left = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpecialBeamTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_dc22l")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

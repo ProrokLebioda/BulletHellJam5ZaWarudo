@@ -1,7 +1,10 @@
 extends Node2D
 
+@onready var ship = $Ship
+
 @onready var player_projectiles_node = $Projectiles/Player
 @onready var enemies_projectiles_node = $Projectiles/Enemies
+@onready var start_point = $StartPoint
 
 
 # Scrolling Background stuff
@@ -16,8 +19,10 @@ extends Node2D
 # For moving player to correct pos
 var mouse_pos_before_pause : Vector2 
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	Input.warp_mouse(start_point.position)
 	setup_scrolling_background()
 	assign_player_weapon()
 	Player.connect("weapon_changed", _on_weapon_changed)
@@ -36,7 +41,10 @@ func assign_player_weapon():
 	var wp = Player.current_weapon as WeaponBase
 	var wp_enum : Weapons.ProjectileType = wp.projectile_type
 	var weapon_for_player = wp
-	#player_weapon_node.add_child(weapon_for_player)
+	if weapon_for_player.get_parent():
+		weapon_for_player.reparent(player_weapon_node)
+	else:
+		player_weapon_node.add_child(weapon_for_player)
 	current_weapon = weapon_for_player
 
 # Callables
@@ -48,23 +56,18 @@ func _on_ship_shoot(pos):
 	else:
 		print_verbose("No weapon")
 
-
 func _on_enemy_simple_ufo_enemy_shoot(pos, dir, projectile):
 	enemies_projectiles_node.add_child(projectile)
-	
-
 
 func _on_enemy_spawner_spawn_enemy_at(pos, enemy: EnemyBase):
 	# connect signal for shoot, TODO: Make it universal
 	enemy.connect("enemy_shoot", _on_enemy_simple_ufo_enemy_shoot)
 
-
-
 func _on_enemy_kill_zone_body_entered(body):
 	if "purge" in body:
 		body.purge()
 
-
 func _on_enemy_kill_zone_area_entered(area):
 	if "purge" in area:
 		area.purge()
+

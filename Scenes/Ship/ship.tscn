@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctyyvjuf6mil0"]
+[gd_scene load_steps=4 format=3 uid="uid://ctyyvjuf6mil0"]
 
 [ext_resource type="Script" path="res://Scenes/Ship/ship.gd" id="1_6b8me"]
 [ext_resource type="Texture2D" uid="uid://raeqp1a4u58i" path="res://Art/Ship/ship01.png" id="2_c4oth"]
+[ext_resource type="PackedScene" uid="uid://crrnak4ociv2h" path="res://Scenes/Weapons/special_weapon/special_weapon.tscn" id="3_gv7qo"]
 
 [node name="Ship" type="CharacterBody2D"]
 collision_mask = 63
 motion_mode = 1
 script = ExtResource("1_6b8me")
+special_cooldown = 5.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, -14, -18, -6, -18, -6, -16, -31, 21, -26, 30, -18, 22, -6, 16, 5, 16, 18, 22, 26, 30, 31, 21, 6, -16, 6, -18, 14, -18)
@@ -15,6 +17,8 @@ polygon = PackedVector2Array(0, -32, -14, -18, -6, -18, -6, -16, -31, 21, -26, 3
 texture = ExtResource("2_c4oth")
 
 [node name="WeaponCooldownTimer" type="Timer" parent="."]
+
+[node name="SpecialCooldownTimer" type="Timer" parent="."]
 
 [node name="WeaponMounts" type="Node2D" parent="."]
 
@@ -39,4 +43,9 @@ position = Vector2(-14, 20)
 [node name="Marker2D" type="Marker2D" parent="WeaponMounts/Back/Marker2D"]
 position = Vector2(24, 0)
 
+[node name="SpecialWeapon" parent="." instance=ExtResource("3_gv7qo")]
+position = Vector2(0, -41)
+
+[connection signal="special_attack_shot" from="." to="." method="_on_special_attack_shot"]
 [connection signal="timeout" from="WeaponCooldownTimer" to="." method="_on_weapon_cooldown_timer_timeout"]
+[connection signal="timeout" from="SpecialCooldownTimer" to="." method="_on_special_cooldown_timer_timeout"]

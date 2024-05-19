@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dc5xyxmgm6qyl"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/special_weapon/special_attack.gd" id="1_gax7x"]
+[ext_resource type="Texture2D" uid="uid://cgl6jd7r6dj4v" path="res://Art/special/special_beam.png" id="2_3rjht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he8cv"]
+size = Vector2(40, 1200)
+
+[sub_resource type="Animation" id="Animation_qq6ny"]
+resource_name = "shoot_beam"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_d515g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1afyg"]
+_data = {
+"RESET": SubResource("Animation_d515g"),
+"shoot_beam": SubResource("Animation_qq6ny")
+}
+
+[node name="SpecialAttack" type="Area2D"]
+collision_layer = 16
+collision_mask = 10
+script = ExtResource("1_gax7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -600)
+shape = SubResource("RectangleShape2D_he8cv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(0, -600)
+texture = ExtResource("2_3rjht")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1afyg")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
