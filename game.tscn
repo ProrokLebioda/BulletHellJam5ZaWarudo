@@ -25,3 +25,4 @@ game_manager = NodePath("../..")
 [editable path="Level"]
 [editable path="Level/EnemySpawner"]
 [editable path="UI/PauseMenu"]
+[editable path="UI/PauseMenu/SettingsMenu"]

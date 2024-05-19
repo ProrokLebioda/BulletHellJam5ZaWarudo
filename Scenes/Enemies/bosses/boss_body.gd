@@ -10,6 +10,8 @@ var state : Enemies.State
 
 @export var enemy_weapon : WeaponBase
 @export var health : int = 4
+@export var point_value : int = 1000
+
 var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
 var is_vulnerable : bool = true
@@ -44,6 +46,7 @@ func hit(damage : int):
 		
 	if health <= 0:
 		health = 0
+		Player.player_score += point_value
 		boss_died.emit()
 		queue_free()
 

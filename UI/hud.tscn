@@ -31,6 +31,21 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("2_dc22l")
 
+[node name="HBoxContainerScore" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerScore"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SCORE:"
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerScore"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "0"
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -39,8 +54,10 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "HP: "
+vertical_alignment = 1
 
 [node name="HPValue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "33"
+vertical_alignment = 1
