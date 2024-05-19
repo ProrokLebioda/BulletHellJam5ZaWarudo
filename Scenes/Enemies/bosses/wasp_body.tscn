@@ -14,7 +14,8 @@ radius = 28.0
 height = 96.0
 
 [node name="WaspBody" instance=ExtResource("1_clnik")]
-health = 20
+invulnerable_time = 0.1
+health = 10
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_0nbpn")

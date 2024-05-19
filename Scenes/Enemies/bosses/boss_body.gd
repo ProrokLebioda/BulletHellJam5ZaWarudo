@@ -12,6 +12,7 @@ var state : Enemies.State
 @export var health : int = 4
 @export var point_value : int = 1000
 @export var collision_damage : int = 10
+@export var death_particle : PackedScene
 
 var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
@@ -45,9 +46,15 @@ func hit(damage : int):
 		invulnerable_timer.start(invulnerable_time)
 		AudioPlayer.play_FX(AudioPlayer.hit_sound, -15.0)
 		
+
 	if health <= 0:
 		health = 0
 		Player.player_score += point_value
+		var particle = death_particle.instantiate()
+		particle.position = global_position
+		particle.rotation = global_rotation
+		particle.emitting = true
+		get_tree().current_scene.add_child(particle)
 		boss_died.emit()
 		queue_free()
 

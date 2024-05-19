@@ -8,6 +8,9 @@ class_name EnemyBase
 @export var health : int = 4
 @export var point_value : int = 10
 @export var collision_damage : int = 3
+
+@export var death_particle : PackedScene
+
 var speed : float = 100.0
 var dir: Vector2 = Vector2.DOWN
 var is_vulnerable : bool = true
@@ -47,6 +50,11 @@ func hit(damage : int):
 	if health <= 0:
 		health = 0
 		Player.player_score += point_value
+		var particle = death_particle.instantiate()
+		particle.position = global_position
+		particle.rotation = global_rotation
+		particle.emitting = true
+		get_tree().current_scene.add_child(particle)
 		queue_free()
 
 func purge():

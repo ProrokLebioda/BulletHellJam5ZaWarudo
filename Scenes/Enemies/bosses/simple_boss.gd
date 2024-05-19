@@ -7,7 +7,6 @@ class_name BossBase
 signal enemy_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
 
 func _ready():
-	is_last_boss = true
 	if path_follow_2d.get_child(0):
 		for boss in path_follow_2d.get_children():
 			boss.connect("boss_shoot", _on_boss_body_boss_shoot)
