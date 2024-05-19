@@ -16,8 +16,7 @@ extends Node2D
 @onready var player_weapon_node = $PlayerWeapon
 
 
-# For moving player to correct pos
-var mouse_pos_before_pause : Vector2 
+
 
 
 func _ready():
