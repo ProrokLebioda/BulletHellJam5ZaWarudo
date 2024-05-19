@@ -1,4 +1,6 @@
 extends CanvasLayer
+@onready var pause_menu = $Panel
+@onready var settings_menu = $SettingsMenu
 
 @export var game_manager : GameManager
 var mouse_pos_before_pause : Vector2
@@ -25,8 +27,11 @@ func _on_resume_button_pressed():
 
 
 func _on_settings_button_pressed():
-	pass # Replace with function body.
+	toggle_settings()
 
+func toggle_settings():
+	settings_menu.visible = !settings_menu.visible
+	pause_menu.visible = !pause_menu.visible
 
 func _on_main_menu_button_pressed():
 	get_tree().change_scene_to_file("res://UI/main_menu.tscn")

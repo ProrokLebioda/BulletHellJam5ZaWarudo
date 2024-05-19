@@ -6,7 +6,15 @@
 visible = false
 script = ExtResource("1_6leqp")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,44 +25,48 @@ size_flags_vertical = 4
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_right = 200
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="SettingsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/h_separation = 24
 columns = 2
 
-[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="MusicSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.05
 tick_count = 5
 
-[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFXSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.05
 tick_count = 5
 
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "BACK"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

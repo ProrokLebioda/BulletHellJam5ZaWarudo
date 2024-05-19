@@ -9,7 +9,7 @@ extends CanvasLayer
 
 
 @onready var settings_menu = $SettingsMenu
-@onready var settings_back_button = $SettingsMenu/MarginContainer/VBoxContainer/BackButton
+@onready var settings_back_button = $SettingsMenu/Panel/MarginContainer/VBoxContainer/BackButton
 @onready var credits = $Credits
 
 @export var main_menu_music : AudioStream
