@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj42q3cl3qhmm"]
+[gd_scene load_steps=3 format=3 uid="uid://cj42q3cl3qhmm"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/bosses/boss_body.gd" id="1_ofgdk"]
+[ext_resource type="PackedScene" uid="uid://w8shupxq48k1" path="res://Scenes/graphics/particles/explosion_particles.tscn" id="2_x4k8y"]
 
 [node name="BossBody" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 57
 script = ExtResource("1_ofgdk")
+death_particle = ExtResource("2_x4k8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
