@@ -11,6 +11,7 @@ signal spawn_enemy_at(pos, enemy : EnemyBase)
 
 @export var spawn_continuously : bool = true
 @export var enemy_types : Array[EnemyBase] = []
+@export var enemy_scenes : Array[PackedScene] = []
 @export var spawn_time : float = 3.0
 
 
@@ -20,7 +21,7 @@ func _on_spawn_timer_timeout():
 	var spawns = spawn_points.get_children()
 	var spawn_point_count = spawns.size()
 	var rand_spawn_point = spawns.pick_random()
-	var new_enemy = enemy_scene.instantiate()
+	var new_enemy = enemy_scenes.pick_random().instantiate()
 	new_enemy.position = rand_spawn_point.position
 	spawn_enemy_at.emit(rand_spawn_point.global_position, new_enemy)
 	enemies.add_child(new_enemy)

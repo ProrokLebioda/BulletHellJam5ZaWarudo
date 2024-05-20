@@ -4,7 +4,7 @@ class_name BossBase
 
 @export var is_last_boss : bool = false
 
-signal enemy_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
+signal enemy_shoot(pos : Vector2, _dir : Vector2, projectile: ProjectileBase)
 
 func _ready():
 	if path_follow_2d.get_child(0):
@@ -18,8 +18,8 @@ func _physics_process(delta):
 func progress_path(delta):
 	path_follow_2d.progress_ratio += delta*0.1
 
-func _on_boss_body_boss_shoot(pos, dir, projectile):
-	enemy_shoot.emit(pos, dir, projectile)
+func _on_boss_body_boss_shoot(pos, _dir, projectile):
+	enemy_shoot.emit(pos, _dir, projectile)
 
 func _on_boss_died():
 	if is_last_boss:

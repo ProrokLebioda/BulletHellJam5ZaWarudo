@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjjqq4rc8kmfe"]
+
+[ext_resource type="PackedScene" uid="uid://b0m63fc140lvx" path="res://Scenes/Ship/projectiles/rotating_projectile.tscn" id="1_ras0q"]
+
+[node name="RotatingProjectileEnemy" instance=ExtResource("1_ras0q")]
+collision_mask = 49

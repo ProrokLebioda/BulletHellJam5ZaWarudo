@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://wrawd4fq54pw"]
+
+[ext_resource type="PackedScene" uid="uid://pird2un13vsw" path="res://Scenes/Enemies/enemy.tscn" id="1_ly5qv"]
+[ext_resource type="Script" path="res://Scenes/Enemies/strafing_ufo.gd" id="2_6k63m"]
+[ext_resource type="Texture2D" uid="uid://cq62hqupja1ie" path="res://Art/Enemies/enemy-ship-0002.png" id="2_l2dq4"]
+[ext_resource type="PackedScene" uid="uid://bjjqq4rc8kmfe" path="res://Scenes/Ship/projectiles/rotating_projectile_enemy.tscn" id="4_bjhyf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocpy7"]
+radius = 8.0
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u47n"]
+size = Vector2(40, 31)
+
+[node name="StrafingUfo" instance=ExtResource("1_ly5qv")]
+script = ExtResource("2_6k63m")
+health = 2
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 3)
+texture = ExtResource("2_l2dq4")
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ocpy7")
+
+[node name="Weapon" parent="EnemyWeapon/WeaponMounts/WeaponMount" index="0"]
+projectile_scene = ExtResource("4_bjhyf")
+
+[node name="DirectionChangeTimer" type="Timer" parent="Timers" index="2"]
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_2u47n")
+
+[connection signal="timeout" from="Timers/DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]
