@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dckfu7wswudjj" path="res://Scenes/Enemies/strafing_ufo.tscn" id="5_ojeyo"]
 [ext_resource type="PackedScene" uid="uid://c7f6vdme6nuc2" path="res://Scenes/graphics/scrolling_background.tscn" id="9_xgqf7"]
 [ext_resource type="PackedScene" uid="uid://domfenqltncx5" path="res://Scenes/Enemies/Utils/enemy_spawner.tscn" id="10_0h7ti"]
-[ext_resource type="PackedScene" uid="uid://b0tl6slafpt81" path="res://Scenes/Enemies/Utils/boss_spawner.tscn" id="10_5hs0r"]
+[ext_resource type="PackedScene" uid="uid://bw2rtdrn1d7ep" path="res://Scenes/Enemies/Utils/boss_spawner.tscn" id="10_5hs0r"]
 [ext_resource type="PackedScene" uid="uid://bb25nttx8v6nu" path="res://Scenes/Enemies/enemy_simple_ufo.tscn" id="13_rtufn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cssji"]

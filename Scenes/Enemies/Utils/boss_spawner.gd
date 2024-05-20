@@ -7,6 +7,7 @@ signal spawn_boss_at(pos, enemy : BossBase)
 
 # TEMP 
 @onready var enemy_scene : PackedScene = preload("res://Scenes/Enemies/enemy_simple_ufo.tscn")
+@onready var spawn_timer = $Timers/SpawnTimer
 
 
 @export var spawn_continuously : bool = true
@@ -14,7 +15,8 @@ signal spawn_boss_at(pos, enemy : BossBase)
 @export var boss_scenes : Array[PackedScene] = []
 @export var spawn_time : float = 3.0
 
-
+func _ready():
+	spawn_timer.start(spawn_time)
 
 func _on_spawn_timer_timeout():
 	# Spawn and enemy at one of the possible positions
