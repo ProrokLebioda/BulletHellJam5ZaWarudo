@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bybpbhsx2e1ed"]
+[gd_scene load_steps=4 format=3 uid="uid://3wnvs5pwaofs"]
 
 [ext_resource type="PackedScene" uid="uid://bp43p0e2pvmfb" path="res://Scenes/Enemies/bosses/simple_boss.tscn" id="1_d8sef"]
-[ext_resource type="PackedScene" uid="uid://c7l3b6g8vvjhk" path="res://Scenes/Enemies/bosses/the_eye_body.tscn" id="2_5gib5"]
+[ext_resource type="PackedScene" uid="uid://c3uimr3k051a1" path="res://Scenes/Enemies/bosses/the_eye_body.tscn" id="2_5gib5"]
 
 [sub_resource type="Curve2D" id="Curve2D_1sssp"]
 _data = {
@@ -15,4 +15,4 @@ point_count = 42
 curve = SubResource("Curve2D_1sssp")
 
 [node name="TheEyeBody" parent="Paths/Path2D/PathFollow2D" index="0" instance=ExtResource("2_5gib5")]
-weapon_cooldown = 0.0
+weapon_cooldown = 0.05

@@ -22,6 +22,7 @@ Weapons="*res://Globals/weapons.gd"
 Enemies="*res://Globals/enemies.gd"
 Player="*res://Globals/player.gd"
 AudioPlayerScript="*res://Globals/Audio/audio_player.gd"
+Bosses="*res://Globals/bosses.gd"
 AudioPlayer="*res://Globals/Audio/audio_player.tscn"
 
 [display]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7l3b6g8vvjhk"]
+[gd_scene load_steps=8 format=3 uid="uid://c3uimr3k051a1"]
 
 [ext_resource type="PackedScene" uid="uid://cj42q3cl3qhmm" path="res://Scenes/Enemies/bosses/boss_body.tscn" id="1_uuto5"]
 [ext_resource type="Script" path="res://Scenes/Enemies/bosses/the_eye_body.gd" id="2_oo13y"]
