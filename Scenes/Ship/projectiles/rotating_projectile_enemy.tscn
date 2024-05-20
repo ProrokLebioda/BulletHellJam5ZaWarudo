@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjjqq4rc8kmfe"]
+[gd_scene load_steps=3 format=3 uid="uid://bmyh2uke7aw6m"]
 
 [ext_resource type="PackedScene" uid="uid://b0m63fc140lvx" path="res://Scenes/Ship/projectiles/rotating_projectile.tscn" id="1_ras0q"]
+[ext_resource type="Texture2D" uid="uid://b7q168skfrt87" path="res://Art/projectiles/rotating_yellow.png" id="2_gdi65"]
 
 [node name="RotatingProjectileEnemy" instance=ExtResource("1_ras0q")]
 collision_mask = 49
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_gdi65")
