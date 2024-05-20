@@ -5,6 +5,7 @@ extends Node2D
 @onready var player_projectiles_node = $Projectiles/Player
 @onready var enemies_projectiles_node = $Projectiles/Enemies
 @onready var start_point = $StartPoint
+@onready var objects_node = $Objects
 
 
 # Scrolling Background stuff
@@ -54,12 +55,24 @@ func _on_ship_shoot(pos):
 	else:
 		print_verbose("No weapon")
 
+func _on_request_item_spawn(pos : Vector2):
+	pass
+
 func _on_enemy_simple_ufo_enemy_shoot(pos, dir, projectile):
 	enemies_projectiles_node.add_child(projectile)
 
 func _on_enemy_spawner_spawn_enemy_at(pos, enemy: EnemyBase):
 	# connect signal for shoot, TODO: Make it universal
 	enemy.connect("enemy_shoot", _on_enemy_simple_ufo_enemy_shoot)
+
+func _on_boss_spawner_spawn_boss_at(pos, enemy):
+	enemy.connect("enemy_shoot", _on_enemy_simple_ufo_enemy_shoot)
+	enemy.connect("request_item_spawn", _on_request_boss_item_spawn)
+
+func _on_request_boss_item_spawn(pos:Vector2):
+	var item = Bosses.get_random_pickup().instantiate()
+	item.position = pos
+	objects_node.call_deferred("add_child", item)
 
 func _on_enemy_kill_zone_body_entered(body):
 	if "purge" in body:
@@ -68,4 +81,6 @@ func _on_enemy_kill_zone_body_entered(body):
 func _on_enemy_kill_zone_area_entered(area):
 	if "purge" in area:
 		area.purge()
+
+
 
