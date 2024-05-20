@@ -16,6 +16,7 @@ radius = 49.0408
 script = ExtResource("2_oo13y")
 rotation_amount_degrees = 5.0
 enemy_weapon = NodePath("EnemyWeapon/WeaponMounts/WeaponMount/Weapon")
+health = 50
 weapon_cooldown = 0.1
 
 [node name="Sprite2D" parent="." index="0"]
