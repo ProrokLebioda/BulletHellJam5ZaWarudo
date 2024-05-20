@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5u8bal3uxm8b"]
+
+[ext_resource type="Script" path="res://UI/credits_screen.gd" id="1_ex7bd"]
+
+[node name="CreditsScreen" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_ex7bd")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="CreditsText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 2
+text = "I've used assets from:
+- Background: \"Nebula Aqua-Pink\" from Dynamic Space Background FREE -> https://dinvstudio.itch.io/dynamic-space-background-lite-free ; by DinVStudio
+- Main theme: Three Red Hearts \"Pixel War 2\" from -> https://tallbeard.itch.io/music-loop-bundle ; by Tallbeard Studios
+- SFX: FreeSFX SFX Pack https://kronbits.itch.io/freesfx; by Kronbits:
+			- Retro Gun Laser SingleShot 01
+			- Retro Weapon Laser 25
+			- Retro Blop 18
+			- Retro Charge StereoUP 01
+			- Retro Event Wrong Echo 03
+			- Retro Impact Punch 07
+			- Retro Negative Long 12
+			- Retro PowerUP 09
+			- Retro PowerUP 23
+			- Retro PowerUP StereoUP 05
+			- Retro Success Melody 01 - sawtooth lead 1
+			- Retro Ambience Short 09 -> used as main menu theme
+"
+fit_content = true
+context_menu_enabled = true
+selection_enabled = true
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

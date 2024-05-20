@@ -7,10 +7,9 @@ extends CanvasLayer
 @onready var credits_button = $MarginContainer/VBoxContainer/CreditsButton
 @onready var quit_button = $MarginContainer/VBoxContainer/QuitButton
 
-
 @onready var settings_menu = $SettingsMenu
 @onready var settings_back_button = $SettingsMenu/Panel/MarginContainer/VBoxContainer/BackButton
-@onready var credits = $Credits
+@onready var credits_screen = $CreditsScreen
 
 @export var main_menu_music : AudioStream
 
@@ -28,7 +27,8 @@ func _on_settings_button_pressed():
 	toggle_settings_menu()
 
 func _on_credits_button_pressed():
-	pass # Replace with function body.
+	credits_screen.visible = !credits_screen.visible
+	main_menu_container.visible = !main_menu_container.visible
 
 func _on_quit_button_pressed():
 	get_tree().quit()
@@ -46,3 +46,7 @@ func toggle_settings_menu():
 	main_menu_container.visible = !main_menu_container.visible
 	if main_menu_container.visible:
 		settings_button.grab_focus()
+
+
+#func _on_toggle_credits():
+	

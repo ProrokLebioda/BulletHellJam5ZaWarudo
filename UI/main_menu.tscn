@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpi4qxc0lkgyk"]
+[gd_scene load_steps=5 format=3 uid="uid://cpi4qxc0lkgyk"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_dypt0"]
 [ext_resource type="PackedScene" uid="uid://stpeyj2q7wkb" path="res://UI/settings_menu.tscn" id="2_axhvf"]
 [ext_resource type="AudioStream" uid="uid://deh2rynls3ltc" path="res://Audio/Music/3rdParty/Retro Ambience Short 09.wav" id="2_qsn47"]
+[ext_resource type="PackedScene" uid="uid://b5u8bal3uxm8b" path="res://UI/credits_screen.tscn" id="4_b68re"]
 
 [node name="MainMenu" type="CanvasLayer"]
 process_mode = 3
@@ -48,15 +49,16 @@ text = "CREDITS"
 layout_mode = 2
 text = "QUIT"
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_axhvf")]
+[node name="CreditsScreen" parent="." instance=ExtResource("4_b68re")]
 
-[node name="Credits" type="CanvasLayer" parent="."]
-visible = false
+[node name="SettingsMenu" parent="." instance=ExtResource("2_axhvf")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsScreen/MarginContainer/VBoxContainer/BackButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingsMenu/Panel/MarginContainer/VBoxContainer/BackButton" to="." method="_on_settings_button_pressed"]
 
+[editable path="CreditsScreen"]
 [editable path="SettingsMenu"]
