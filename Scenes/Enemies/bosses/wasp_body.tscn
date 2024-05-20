@@ -15,7 +15,7 @@ height = 96.0
 
 [node name="WaspBody" instance=ExtResource("1_clnik")]
 invulnerable_time = 0.1
-health = 10
+health = 25
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_0nbpn")

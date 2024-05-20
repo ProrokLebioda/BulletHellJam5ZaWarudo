@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw2rtdrn1d7ep"]
+[gd_scene load_steps=4 format=3 uid="uid://bw2rtdrn1d7ep"]
 
-[ext_resource type="PackedScene" uid="uid://domfenqltncx5" path="res://Scenes/Enemies/Utils/enemy_spawner.tscn" id="1_a5t8l"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Utils/boss_spawner.gd" id="2_iy8kj"]
 [ext_resource type="PackedScene" uid="uid://bw4jkeixcoc2s" path="res://Scenes/Enemies/bosses/wasp_boss.tscn" id="3_xn4rm"]
 [ext_resource type="PackedScene" uid="uid://3wnvs5pwaofs" path="res://Scenes/Enemies/bosses/the_eye_boss.tscn" id="4_j307r"]
 
-[node name="BossSpawner" node_paths=PackedStringArray("boss_types") instance=ExtResource("1_a5t8l")]
+[node name="BossSpawner" type="Node2D"]
 script = ExtResource("2_iy8kj")
-boss_types = []
 boss_scenes = Array[PackedScene]([ExtResource("3_xn4rm"), ExtResource("4_j307r")])
 spawn_time = 50.0
 
-[node name="SpawnTimer" parent="Timers" index="0"]
-autostart = false
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints"]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Timers"]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[connection signal="timeout" from="Timers/SpawnTimer" to="." method="_on_spawn_timer_timeout" flags=18]

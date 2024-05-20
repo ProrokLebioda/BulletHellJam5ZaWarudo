@@ -10,7 +10,11 @@ radius = 6.08276
 collision_layer = 8
 collision_mask = 34
 script = ExtResource("2_1jbqp")
-rotation_radius = 10.2
+rotation_amount_degrees = 15.0
+rotation_radius = 50.0
+speed = 500.0
+projectile_lifetime = 4.0
+projectile_damage = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
