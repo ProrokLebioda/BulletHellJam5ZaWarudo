@@ -25,7 +25,7 @@ func _on_spawn_timer_timeout():
 	var rand_spawn_point = spawns.pick_random()
 	var new_boss = boss_scenes.pick_random().instantiate() as BossBase
 	new_boss.position = rand_spawn_point.position
-	if Player.killed_bosses >= 1: 
+	if Player.killed_bosses >= 4: 
 		new_boss.is_last_boss = true
 	spawn_boss_at.emit(rand_spawn_point.global_position, new_boss)
 	enemies.add_child(new_boss)

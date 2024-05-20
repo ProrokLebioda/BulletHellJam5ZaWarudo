@@ -6,7 +6,6 @@
 [node name="RotatingProjectileEnemy" instance=ExtResource("1_ras0q")]
 collision_mask = 49
 speed = 400.0
-projectile_lifetime = 4.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_gdi65")

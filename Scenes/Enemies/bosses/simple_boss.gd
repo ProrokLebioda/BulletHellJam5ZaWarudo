@@ -8,6 +8,8 @@ signal enemy_shoot(pos : Vector2, _dir : Vector2, projectile: ProjectileBase)
 signal request_item_spawn(pos : Vector2)
 signal boss_spawned(boss : BossBase)
 
+var speed : float = 200.0
+var is_moving = true
 func _ready():
 	if path_follow_2d.get_child(0):
 		for boss in path_follow_2d.get_children():
@@ -17,6 +19,8 @@ func _ready():
 
 func _physics_process(delta):
 	progress_path(delta)
+	if is_moving:
+		position += speed * Vector2.DOWN * delta
 
 func progress_path(delta):
 	path_follow_2d.progress_ratio += delta*0.1
@@ -35,3 +39,7 @@ func _on_boss_died():
 		request_item_spawn.emit(boss_gp)
 
 	call_deferred("queue_free")
+
+
+func _on_move_timer_timeout():
+	is_moving = false

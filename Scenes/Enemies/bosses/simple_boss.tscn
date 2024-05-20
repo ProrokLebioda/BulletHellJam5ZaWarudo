@@ -11,3 +11,10 @@ script = ExtResource("2_3n32e")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
 rotates = false
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
