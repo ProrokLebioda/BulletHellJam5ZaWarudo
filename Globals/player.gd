@@ -5,7 +5,7 @@ signal weapon_changed(weapon : WeaponBase)
 signal special_state_change(is_ready : bool)
 
 var ram_damage : int = 3
-
+var killed_bosses : int = 0
 var player_score : int = 0:
 	get:
 		return player_score
@@ -73,6 +73,7 @@ func reset_player_stats():
 	health = health_base
 	is_vulnerable = true
 	player_score = 0
+	killed_bosses = 0
 	curren_weapon_type = Weapons.WeaponType.SINGLE
 	current_weapon_projectile_type =  Weapons.ProjectileType.BASIC
 	current_projectile = Weapons.get_projectile_scene(current_weapon_projectile_type)

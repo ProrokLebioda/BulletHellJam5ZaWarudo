@@ -15,5 +15,5 @@ point_count = 7
 curve = SubResource("Curve2D_ly4tl")
 
 [node name="WaspBody" parent="Paths/Path2D/PathFollow2D" index="0" instance=ExtResource("2_kct0a")]
-health = 100
+health = 4
 weapon_cooldown = 2.0
