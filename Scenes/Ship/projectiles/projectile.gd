@@ -22,3 +22,5 @@ func _physics_process(delta):
 func _on_lifetime_timer_timeout():
 	queue_free()
 	
+func purge():
+	queue_free()
