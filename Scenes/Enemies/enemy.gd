@@ -8,6 +8,7 @@ class_name EnemyBase
 @export var health : int = 4
 @export var point_value : int = 10
 @export var collision_damage : int = 3
+@export var item_spawn_chance : int = 10
 
 @export var death_particle : PackedScene
 
@@ -18,7 +19,7 @@ var can_shoot : bool = true
 var weapon_cooldown : float = 1
 
 signal enemy_shoot(pos : Vector2, dir : Vector2, projectile: ProjectileBase)
-
+signal request_item_spawn(pos : Vector2)
 
  
 func _physics_process(delta):
@@ -54,8 +55,16 @@ func hit(damage : int):
 		particle.position = global_position
 		particle.rotation = global_rotation
 		particle.emitting = true
+		
+		if can_spawn_item():
+			request_item_spawn.emit(global_position)
+
 		get_tree().current_scene.add_child(particle)
 		queue_free()
+
+func can_spawn_item() -> bool:
+	var val = randi_range(0, 100)
+	return val < item_spawn_chance
 
 func purge():
 	queue_free()

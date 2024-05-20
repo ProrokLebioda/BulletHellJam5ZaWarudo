@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0tl6slafpt81"]
+[gd_scene load_steps=5 format=3 uid="uid://bw2rtdrn1d7ep"]
 
 [ext_resource type="PackedScene" uid="uid://domfenqltncx5" path="res://Scenes/Enemies/Utils/enemy_spawner.tscn" id="1_a5t8l"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Utils/boss_spawner.gd" id="2_iy8kj"]
@@ -9,3 +9,7 @@
 script = ExtResource("2_iy8kj")
 boss_types = []
 boss_scenes = Array[PackedScene]([ExtResource("3_xn4rm"), ExtResource("4_j307r")])
+spawn_time = 50.0
+
+[node name="SpawnTimer" parent="Timers" index="0"]
+autostart = false
