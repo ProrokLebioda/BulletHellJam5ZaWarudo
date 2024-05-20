@@ -1,0 +1,16 @@
+I've used assets from:
+- Background: "Nebula Aqua-Pink" from Dynamic Space Background FREE -> https://dinvstudio.itch.io/dynamic-space-background-lite-free ; by DinVStudio
+- Main theme: Three Red Hearts "Pixel War 2" from -> https://tallbeard.itch.io/music-loop-bundle ; by Tallbeard Studios
+- SFX: FreeSFX SFX Pack https://kronbits.itch.io/freesfx; by Kronbits:
+			- Retro Gun Laser SingleShot 01
+			- Retro Weapon Laser 25
+			- Retro Blop 18
+			- Retro Charge StereoUP 01
+			- Retro Event Wrong Echo 03
+			- Retro Impact Punch 07
+			- Retro Negative Long 12
+			- Retro PowerUP 09
+			- Retro PowerUP 23
+			- Retro PowerUP StereoUP 05
+			- Retro Success Melody 01 - sawtooth lead 1
+			- Retro Ambience Short 09 -> used as main menu theme
