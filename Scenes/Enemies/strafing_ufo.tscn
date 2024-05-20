@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://wrawd4fq54pw"]
+[gd_scene load_steps=7 format=3 uid="uid://dckfu7wswudjj"]
 
 [ext_resource type="PackedScene" uid="uid://pird2un13vsw" path="res://Scenes/Enemies/enemy.tscn" id="1_ly5qv"]
 [ext_resource type="Script" path="res://Scenes/Enemies/strafing_ufo.gd" id="2_6k63m"]
-[ext_resource type="Texture2D" uid="uid://cq62hqupja1ie" path="res://Art/Enemies/enemy-ship-0002.png" id="2_l2dq4"]
-[ext_resource type="PackedScene" uid="uid://bjjqq4rc8kmfe" path="res://Scenes/Ship/projectiles/rotating_projectile_enemy.tscn" id="4_bjhyf"]
+[ext_resource type="Texture2D" path="res://Art/Enemies/enemy-ship-0002.png" id="2_l2dq4"]
+[ext_resource type="PackedScene" uid="uid://bmyh2uke7aw6m" path="res://Scenes/Ship/projectiles/rotating_projectile_enemy.tscn" id="4_bjhyf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocpy7"]
 radius = 8.0
