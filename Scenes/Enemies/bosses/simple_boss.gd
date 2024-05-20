@@ -31,7 +31,7 @@ func _on_boss_died():
 	else:
 		var boss = path_follow_2d.get_child(0)
 		var boss_gp = boss.global_position
-		
+		Player.killed_bosses +=1
 		request_item_spawn.emit(boss_gp)
 
 	call_deferred("queue_free")
