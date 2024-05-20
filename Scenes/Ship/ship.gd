@@ -25,8 +25,8 @@ func _physics_process(delta):
 	#disp_size = DisplayServer.window_get_size_with_decorations()
 	var mouse_pos = get_global_mouse_position()
 	# clamp out of bounds
-	var bounds :Vector2 = Vector2(disp_size.x /2, disp_size.y/2)
-	
+	#var bounds :Vector2 = Vector2(disp_size.x /2, disp_size.y/2)
+	var bounds :Vector2 = Vector2(450, disp_size.y/2)
 	mouse_pos.x = clamp(mouse_pos.x, -bounds.x, bounds.x)
 	mouse_pos.y = clamp(mouse_pos.y, -bounds.x, bounds.y)
 	
